@@ -5,12 +5,12 @@ import csv
 
 def kirim_email(subject, pesan, penerima, pengirim_email, password, smtp_server, smtp_port):
     try:
-        # Setup
+        # konfigurasi
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
         server.login(pengirim_email, password)
 
-       
+        # Pesan
         msg = MIMEMultipart()
         msg['From'] = pengirim_email
         msg['To'] = ', '.join(penerima)
@@ -38,13 +38,13 @@ def baca_csv(nama_file):
 nama_file_csv = 'email_tb.csv'
 
 # config
-pengirim_email = 'bocah@smknusa.com'
-password = 'sukses.2024'
-smtp_server = 'mail.smknusa.com'
-smtp_port = 26  
+pengirim_email = 'isi_email_pengirim'
+password = 'Password_Email'
+smtp_server = 'Server_Email'
+smtp_port = Port  
 
 # Isi Pesan
-subject = 'Penawaran PT TCP  - 5'
-pesan = 'Halo pesan di kirim dari PT TCP, dan daftar list dari file csv'
+subject = 'Text Untuk Subject'
+pesan = 'Halo pesan di kirim dari PT ABC, dan daftar list dari file csv'
 penerima = baca_csv(nama_file_csv)
 kirim_email(subject, pesan, penerima, pengirim_email, password, smtp_server, smtp_port)
