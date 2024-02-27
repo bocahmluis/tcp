@@ -7,10 +7,11 @@ import csv
 
 def kirim_email(penerima, subject, pesan, lampiran=None):
     try:
-        pengirim_email = 'bocah@smknusa.com'
-        password = 'sukses.2024'
-        smtp_server = 'mail.smknusa.com'
-        smtp_port = 26
+        # config
+        pengirim_email = 'isi_email_pengirim'
+        password = 'Password_Email'
+        smtp_server = 'Server_Email'
+        smtp_port = Port 
         
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
