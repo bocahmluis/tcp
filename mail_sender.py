@@ -22,7 +22,7 @@ def kirim_email(subject, pesan, penerima, pengirim_email, password, smtp_server,
 
         print("Berhasil dikirim")
     except Exception as e:
-        print("Gagal Mengirim:", str(e))
+        print("Gagal Dikirim:", str(e))
     finally:
         
         server.quit()
@@ -34,7 +34,8 @@ def baca_csv(nama_file):
         for row in reader:
             penerima.append(row[0])  
     return penerima
-
+    
+# ambil list dari file csv
 nama_file_csv = 'email_tb.csv'
 
 # config
