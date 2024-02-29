@@ -7,8 +7,8 @@ import time
 def cari_url(nama_pt):
     try:
         
-        api_key = 'AIzaSyDtZB7i3tmq2wAlaOc0pY1hzsNol7v8jMg'
-        search_engine_id = 'b6d88b063427d4849'
+        api_key = 'pakai api google '
+        search_engine_id = 'pakai id search engine google'
         api_endpoint = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={search_engine_id}&q={nama_pt.replace(' ', '+')}"
         respons = requests.get(api_endpoint)
         time.sleep(1)
