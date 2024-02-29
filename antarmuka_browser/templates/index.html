@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4 text-center">tes tes</h1>
+        <form id="emailForm" action="/" method="post">
+            <div class="form-group">
+                <label for="subject">Subjek Email:</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="pesan">Isi Pesan :</label>
+                <textarea class="form-control" id="pesan" name="pesan" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- notif pengiriman / berhasil atau gagal -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const result = urlParams.get('result');
+        
+        if (result) {
+            const message = result === 'success' ? 'Email berhasil dikirim!' : 'Gagal mengirim email!';
+            const alertType = result === 'success' ? 'alert-success' : 'alert-danger';
+            const alertModal = `
+                <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="alertModalLabel">Pesan</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert ${alertType}" role="alert">
+                                    ${message}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $('body').append(alertModal); 
+            $('#alertModal').modal('show'); 
+        }
+    </script>
+</body>
+</html>
