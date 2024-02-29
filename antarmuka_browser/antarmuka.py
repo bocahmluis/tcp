@@ -44,10 +44,10 @@ def index():
         subject = request.form['subject']
         pesan = request.form['pesan']
         nama_file_csv = 'email_tb.csv'
-        pengirim_email = 'bocah@smknusa.com'
-        password = 'sukses.2024'
-        smtp_server = 'mail.smknusa.com'
-        smtp_port = 26
+        pengirim_email = 'di isi'
+        password = 'di isi'
+        smtp_server = 'di isi'
+        smtp_port = sesuaikan
         penerima = baca_csv(nama_file_csv)
         success, message = kirim_email(subject, pesan, penerima, pengirim_email, password, smtp_server, smtp_port)
         if success:
